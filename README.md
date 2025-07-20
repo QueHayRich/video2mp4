@@ -10,12 +10,21 @@ Convierte automáticamente todos los videos de la carpeta actual a formato MP4 u
 
 ### Requisitos
 
-- Windows
-- `ffmpeg.exe` en la misma carpeta (incluido en este repositorio).
+- Windows 10 o superior
+- PowerShell (incluido en Windows)
+- ffmpeg.exe (ver instrucciones abajo para descargarlo)
 
 ### Notas
 
-- Si no deseas subir `ffmpeg.exe` por su tamaño, puedes descargarlo desde [ffmpeg.org](https://ffmpeg.org/download.html) y colocarlo en la carpeta.
+ Necesitarás `ffmpeg.exe`. Puedes descargarlo manualmente desde [ffmpeg.org](https://ffmpeg.org/download.html) o ejecuta este comando en PowerShell para descargarlo automáticamente:
+
+ ```powershell
+ Invoke-WebRequest -Uri "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip" -OutFile "ffmpeg.zip"
+ Expand-Archive -Path "ffmpeg.zip" -DestinationPath "."
+ Copy-Item ".\ffmpeg-*-essentials_build\bin\ffmpeg.exe" .
+ Remove-Item "ffmpeg.zip"
+ ```
+ Esto descargará y extraerá `ffmpeg.exe` en la carpeta actual.
 
 ## Licencia
 
